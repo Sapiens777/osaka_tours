@@ -150,6 +150,33 @@
         <p style="margin-bottom: 20px; font-size: 1.1rem;">My tours will soon be available for booking on major platforms (GetYourGuide & Viator).</p>
         <p>&copy; 2024 Style & Story Osaka | Guided by Yuta</p>
     </footer>
+<script>
+        // 切り替えたい画像のURLをリストで用意します（ご自身の画像名に変更可能です）
+        const images = [
+            "https://images.unsplash.com/photo-1590559899731-a382839ceef2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", // 1枚目
+            "https://images.unsplash.com/photo-1502164980785-f8aa41d53611?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80", // 2枚目
+            "https://images.unsplash.com/photo-1524388680868-377a2e6bbb1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"  // 3枚目
+        ];
 
+        const heroElement = document.querySelector('.hero');
+        let currentIndex = 0;
+
+        // 5秒（5000ミリ秒）ごとに画像を切り替える処理
+        setInterval(() => {
+            // 次の画像の番号を計算（最後までいったら0に戻る）
+            currentIndex = (currentIndex + 1) % images.length;
+            
+            // 背景画像を新しいものに書き換え（文字を読みやすくする黒いグラデーションは維持）
+            heroElement.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('${images[currentIndex]}')`;
+        }, 5000);
+    </script>
+    ```
+
+4. 貼り付けたら、右上にある緑色の「**Commit changes...**」ボタンを押して保存します。
+
+これで、サイトを開いたままにしておくと、5秒ごとにトップの背景画像がパッパッと自動で入れ替わるようになります。
+
+**💡 自分で撮った写真に入れ替える場合**
+今週末に写真を撮影してGitHubにアップロード（Upload files）した後は、このプログラムの中にある `https://images.unsplash...` の部分を、`./ご自身のファイル名.JPG` のように書き換えるだけで、自分の写真でスライドショーを作ることができます！
 </body>
 </html>
